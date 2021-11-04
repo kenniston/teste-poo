@@ -5,18 +5,18 @@ import java.util.List;
 
 /**
  * Simpletron Version 1.0
- *
- *  Registers:
- *      IP
- *      ACC
- *
- *  Instructions:
- *      ADD
- *      LOAD
- *      STORE
- *      WRITE
- *      SUB
- *      READ
+ * <p>
+ * Registers:
+ * IP
+ * ACC
+ * <p>
+ * Instructions:
+ * ADD
+ * LOAD
+ * STORE
+ * WRITE
+ * SUB
+ * READ
  */
 public class SimpletronEntity {
     private long id;
@@ -32,6 +32,25 @@ public class SimpletronEntity {
     private List<String> instructions;
     private Date creationDate;
     private Date updateDate;
+
+    public SimpletronEntity(long id, String name, String description, String model, String brand, float price,
+        int inputBytesCount, int memory, String memoryUnit, List<String> registers,
+        List<String> instructions, Date creationDate, Date updateDate) {
+
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.model = model;
+        this.brand = brand;
+        this.price = price;
+        this.inputBytesCount = inputBytesCount;
+        this.memory = memory;
+        this.memoryUnit = memoryUnit;
+        this.registers = registers;
+        this.instructions = instructions;
+        this.creationDate = creationDate;
+        this.updateDate = updateDate;
+    }
 
     public long getId() {
         return id;

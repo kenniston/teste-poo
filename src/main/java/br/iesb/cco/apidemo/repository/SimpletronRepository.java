@@ -1,5 +1,6 @@
 package br.iesb.cco.apidemo.repository;
 
+import br.iesb.cco.apidemo.model.SimpletronBuilder;
 import br.iesb.cco.apidemo.model.SimpletronEntity;
 import org.springframework.stereotype.Repository;
 
@@ -12,19 +13,14 @@ public class SimpletronRepository {
     public List<SimpletronEntity> get() {
         //TODO: Consultar no banco de dados os computadores do
         //      tipo Simpletron
-        SimpletronEntity computer = new SimpletronEntity();
-        computer.setBrand("Simpletron Computers");
-        computer.setDescription("Computador simples do tipo Simpletron V1");
-        computer.setName("Simpletron i9");
-
-        List<String> inst = new ArrayList<>();
-        inst.add("ADD");
-        inst.add("LOAD");
-        inst.add("STORE");
-        inst.add("SUB");
-        inst.add("WRITE");
-        inst.add("READ");
-        computer.setInstructions(inst);
+        SimpletronEntity computer = new SimpletronBuilder()
+            .withName("Simpletron i9")
+            .withBrand("Simpletron Computers")
+            .withDescription("Computador simples do tipo Simpletron V1")
+            .addInstruction("ADD")
+            .addInstruction("READ")
+            .addInstruction(new String[]{"LOAD", "STORE", "SUB", "WRITE"})
+            .build();
 
         List<SimpletronEntity> resultadoDoBanco = new ArrayList<>();
         resultadoDoBanco.add(computer);
@@ -48,3 +44,41 @@ public class SimpletronRepository {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    SimpletronEntity computer = new SimpletronEntity();
+//        computer.setBrand("Simpletron Computers");
+//            computer.setDescription("Computador simples do tipo Simpletron V1");
+//            computer.setName("Simpletron i9");
+//
+//            List<String> inst = new ArrayList<>();
+//    inst.add("ADD");
+//    inst.add("LOAD");
+//    inst.add("STORE");
+//    inst.add("SUB");
+//    inst.add("WRITE");
+//    inst.add("READ");
+//    computer.setInstructions(inst);
+//
+//    List<SimpletronEntity> resultadoDoBanco = new ArrayList<>();
+//    resultadoDoBanco.add(computer);
